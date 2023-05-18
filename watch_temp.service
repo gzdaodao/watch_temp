@@ -1,0 +1,21 @@
+[Unit]
+Description=Watch tempature
+After=syslog.target
+
+[Service]
+Type=simple
+PrivateTmp=true
+#WorkingDirectory=
+#User=pproxy
+#Group=pproxy
+ExecStart=/usr/local/bin/watch_temp.py
+#DeviceAllow=/dev/null rw
+#DeviceAllow=/dev/net/tun rw
+ProtectSystem=true
+ProtectHome=true
+KillMode=process
+RestartSec=5s
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
